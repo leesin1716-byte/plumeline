@@ -1,0 +1,115 @@
+<!doctype html>
+<!-- Plumeline 데모 페이지: 브라우저 안 EVM 위에서 위성 메탄 관측·사건·대사·LNG 화물 여권을 재생한다 -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plumeline</title>
+    <meta name="description" content="A methane passport for every LNG cargo: satellite methane observations, super-emitter cases and cargo-level methane intensity on a shared ledger." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230b1220'/%3E%3Cpath d='M14 40c8-14 18-14 24-8s12 4 12-6' stroke='%23ff7a1a' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#14203a" /><path d="M14 40c8-14 18-14 24-8s12 4 12-6" stroke="#ff7a1a" stroke-width="6" fill="none" stroke-linecap="round" /></svg>
+        <div>
+          <div class="name">Plumeline</div>
+          <div class="tag">A methane passport for every LNG cargo</div>
+        </div>
+      </div>
+      <div class="clock">
+        <div class="date" id="date">—</div>
+        <div class="sub" id="chainInfo">starting in-browser EVM…</div>
+      </div>
+      <div class="controls">
+        <button id="reset" title="Start over">Reset</button>
+        <button id="next" title="Run the next event">Next event</button>
+        <button id="play" class="primary" title="Play the whole scenario">Play</button>
+      </div>
+    </header>
+
+    <div class="timeline" id="timeline" aria-label="Scenario timeline"></div>
+
+    <main class="grid">
+      <section class="panel map-panel">
+        <div class="panel-head">
+          <h2>Basin view</h2>
+          <span class="hint">Fictional layout · satellite histories are real</span>
+        </div>
+        <svg id="map" viewBox="0 0 1000 620" role="img" aria-label="Map of six fictional sites, their pipelines and the LNG plant"></svg>
+        <div class="event-card" id="eventCard"></div>
+      </section>
+
+      <section class="col-mid">
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Super-emitter cases</h2>
+            <span class="hint">opened by any detection &gt; 100 kg/h · closed only by a later clear overpass</span>
+          </div>
+          <table class="cases" id="cases"></table>
+        </div>
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Monthly reconciliation</h2>
+            <span class="hint">operator report vs satellite floor (t CH₄)</span>
+          </div>
+          <div id="recon"></div>
+        </div>
+      </section>
+
+      <section class="col-right">
+        <div class="panel cargo-panel">
+          <div class="panel-head">
+            <h2>Cargo passport</h2>
+            <span class="hint">ERC-721 · read live</span>
+          </div>
+          <div id="cargo"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Ledger</h2>
+            <span class="hint" id="ledgerHint"></span>
+          </div>
+          <ol class="ledger" id="ledger"></ol>
+        </div>
+      </section>
+    </main>
+
+    <section class="drawer">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Try to break it</h2>
+          <span class="hint">each button sends a real transaction to the same contract</span>
+        </div>
+        <div class="attacks" id="attacks"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Check it yourself</h2>
+          <span class="hint">nothing on this page is typed in by hand</span>
+        </div>
+        <div id="verify" class="verify"></div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      Satellite observations: Data by Carbon Mapper® (Tanager), anonymized Permian Basin oil &amp; gas sources, used under the Carbon Mapper Terms of Use. Operators, sites, volumes, reports, plant, cargo and importer are fictional.
+      Thresholds: super-emitting event &gt; 100 kg/h (Regulation (EU) 2024/1787, Art. 2(62)). The 0.20 % cargo limit is illustrative; EU maximum methane intensity values are not set yet.
+    </footer>
+
+    <div class="intro" id="intro" hidden>
+      <div class="intro-box">
+        <h1>Plumeline</h1>
+        <p class="lead">Satellites already see the biggest methane leaks in the world's gas fields. Plumeline puts every overpass on a shared ledger, makes each leak a case that only the satellite can close, and carries the result onto the LNG cargo the gas ends up in.</p>
+        <ol>
+          <li><b>Real data.</b> 26 Tanager overpasses of six real Permian sources (Carbon Mapper), June – October 2026, posted 30 days after capture, as Carbon Mapper publishes them.</li>
+          <li><b>Real contract.</b> The Solidity contract from the repository runs in an Ethereum virtual machine inside this page. No wallet, no testnet.</li>
+          <li><b>Fictional actors.</b> Operators, sites, reports, the LNG plant and the importer are invented.</li>
+        </ol>
+        <button id="start" class="primary big">Start the demo</button>
+      </div>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

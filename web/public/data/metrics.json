@@ -1,0 +1,112 @@
+{
+ "data": "Carbon Mapper Tanager CH4 plumes and scenes, oil & gas sector, Permian Basin bbox (-104.8, 30.8, -101.0, 33.6)",
+ "examples": {
+  "train": 2000,
+  "test": 1692,
+  "train_positive_rate": 0.14,
+  "test_positive_rate": 0.092
+ },
+ "sources_in_test": 708,
+ "split": "train: overpasses before 2026-03-01; test: overpasses from 2026-03-01",
+ "best_by_log_loss": "logistic_regression",
+ "exported_model": "logistic_regression",
+ "bootstrap_by_source": {
+  "resamples": 1000,
+  "logit_auc_95ci": [
+   0.697,
+   0.808
+  ],
+  "auc_gain_vs_smoothed_fraction_95ci": [
+   -0.023,
+   0.051
+  ],
+  "log_loss_gain_vs_smoothed_fraction_95ci": [
+   0.134,
+   0.179
+  ]
+ },
+ "sha256": "259a1a981b1e60e634163cc1b5f0644dba5ff7c17e22e19c6910af9473607d1f",
+ "test_scores": {
+  "gradient_boosting": {
+   "auc": 0.728,
+   "brier": 0.0719,
+   "log_loss": 0.2678
+  },
+  "logistic_regression": {
+   "auc": 0.755,
+   "brier": 0.0695,
+   "log_loss": 0.2588
+  },
+  "baseline_smoothed_fraction": {
+   "auc": 0.742,
+   "brier": 0.1234,
+   "log_loss": 0.4151
+  },
+  "baseline_last_result": {
+   "auc": 0.64,
+   "brier": 0.1982,
+   "log_loss": 0.6222
+  },
+  "baseline_train_rate": {
+   "auc": 0.5,
+   "brier": 0.0859,
+   "log_loss": 0.318
+  }
+ },
+ "calibration_test": [
+  {
+   "p_mean": 0.021,
+   "observed": 0.041,
+   "n": 339
+  },
+  {
+   "p_mean": 0.039,
+   "observed": 0.027,
+   "n": 338
+  },
+  {
+   "p_mean": 0.065,
+   "observed": 0.041,
+   "n": 338
+  },
+  {
+   "p_mean": 0.105,
+   "observed": 0.104,
+   "n": 338
+  },
+  {
+   "p_mean": 0.279,
+   "observed": 0.248,
+   "n": 339
+  }
+ ],
+ "triage_test": {
+  "top_10pct_captures": 0.417,
+  "top_20pct_captures": 0.538,
+  "top_30pct_captures": 0.679
+ },
+ "triage_test_baseline_smoothed_fraction": {
+  "top_10pct_captures": 0.346,
+  "top_20pct_captures": 0.513,
+  "top_30pct_captures": 0.641
+ },
+ "mass_weighted_top20pct": {
+  "model_p_times_last_rate": 0.576,
+  "last_rate_only": 0.462
+ },
+ "features": [
+  "n_obs",
+  "n_det",
+  "frac_smoothed",
+  "last_detected",
+  "streak",
+  "days_since_obs",
+  "days_since_det",
+  "log_last_rate",
+  "log_max_rate",
+  "n_det_180d",
+  "n_obs_180d",
+  "doy_sin",
+  "doy_cos"
+ ]
+}
