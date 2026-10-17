@@ -1,0 +1,8 @@
+node_modules/
+artifacts/
+cache/
+web/dist/
+data/raw/
+.env
+*.log
+__pycache__/

@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.png binary
+data/model/persistence_logit.json -text
+web/public/data/persistence_logit.json -text

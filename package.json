@@ -1,0 +1,31 @@
+{
+  "name": "plumeline",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A methane passport for every LNG cargo: satellite methane observations, super-emitter cases and cargo-level methane intensity on a shared ledger.",
+  "license": "MIT",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "export-abi": "node scripts/export-artifacts.cjs",
+    "dev": "npm run compile && npm run export-abi && vite web",
+    "build": "npm run compile && npm run export-abi && vite build web",
+    "preview": "vite preview web"
+  },
+  "devDependencies": {
+    "@ethereumjs/block": "^10.1.3",
+    "@ethereumjs/common": "^10.1.3",
+    "@ethereumjs/tx": "^10.1.3",
+    "@ethereumjs/util": "^10.1.3",
+    "@ethereumjs/vm": "^10.1.3",
+    "@nomicfoundation/hardhat-chai-matchers": "^2.1.2",
+    "@nomicfoundation/hardhat-ethers": "^3.1.3",
+    "@nomicfoundation/hardhat-network-helpers": "^1.1.2",
+    "@openzeppelin/contracts": "^5.6.1",
+    "chai": "^4.5.0",
+    "ethers": "^6.17.0",
+    "hardhat": "^2.29.1",
+    "viem": "^2.57.7",
+    "vite": "^8.3.4"
+  }
+}
