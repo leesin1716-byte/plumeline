@@ -7,9 +7,10 @@
   "scripts": {
     "compile": "hardhat compile",
     "test": "hardhat test",
-    "export-abi": "node scripts/export-artifacts.cjs",
-    "dev": "npm run compile && npm run export-abi && vite web",
-    "build": "npm run compile && npm run export-abi && vite build web",
+    "export-abi": "hardhat compile && node scripts/export-artifacts.cjs",
+    "replay": "npm run export-abi && node scripts/replay-node.mjs",
+    "dev": "npm run export-abi && vite web",
+    "build": "npm run export-abi && vite build web",
     "preview": "vite preview web"
   },
   "devDependencies": {
@@ -27,5 +28,8 @@
     "hardhat": "^2.29.1",
     "viem": "^2.57.7",
     "vite": "^8.3.4"
+  },
+  "engines": {
+    "node": ">=20.11"
   }
 }
