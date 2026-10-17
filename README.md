@@ -3,7 +3,7 @@
 
 **Plumeline puts a methane passport on every LNG cargo.** Satellite methane observations go onto a shared ledger. Every super-emitter becomes a case that only the satellite can close. The gas from each cargo carries a methane intensity that the importer reads live.
 
-**Track:** Sustainable Supply Chains (digital product passports). The project also falls under Carbon Markets & Emissions Transparency, because it tracks emissions in near real time.
+**Track:** Sustainable Supply Chains (digital product passports). The project also falls under Carbon Markets & Emissions Transparency, because it tracks emissions overpass by overpass and its smart contract blocks double counting.
 **Built for:** IEEE ClimateChain Global Hackathon 2026.
 
 ![Plumeline demo: basin view, super-emitter cases, monthly reconciliation and the cargo passport](docs/screenshot.png)
@@ -30,7 +30,7 @@ flowchart LR
 
 1. **Every overpass is on the ledger, including the clear ones.** The satellite oracle posts each overpass of each site, in time order, once per scene.
 2. **Super-emitters become cases.** A detection above 100 kg/h opens a case, and the operator has 10 days to answer. A repair claim does not close it. Only a later clear overpass closes it. If the satellite still sees the plume after the claimed repair, the case goes back to open.
-3. **Monthly reconciliation.** The operator's report is checked against the satellite each month. The model oracle posts a satellite-based estimate and a conservative floor for the month. If even the floor is above the report, the month is flagged: this is the "reconciliation process" of Art. 2(63). Cargoes then count the satellite estimate until an accredited verifier accepts an explanation.
+3. **Monthly reconciliation.** The operator's report is checked against the satellite each month. The model oracle posts a satellite-based estimate and a conservative floor for the month. If even the floor is above the report, the month is flagged for reconciliation, modelled on the "reconciliation process" of Art. 2(63). Cargoes then count the satellite estimate until an accredited verifier accepts an explanation.
 4. **Cargo passports with a mass balance.** The LNG plant mints an ERC-721 passport from verified site-months. Each tonne can be allocated once, so the same low-methane gas cannot be sold into two cargoes.
 5. **The passport is live.** Carbon Mapper publishes scenes about 30 days after capture. `cargoMethane()` recomputes the intensity from the current state, so evidence that arrives after loading still reaches the importer. The value at loading is kept beside it.
 
