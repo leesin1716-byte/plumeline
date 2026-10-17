@@ -57,7 +57,7 @@ A second cargo that tries to sell 111,000 t of Alder's August gas (110,000 t are
 
 ## Where the AI is
 
-The **persistence model** is a logistic regression trained on 3,692 Tanager overpasses of 909 Permian sources. It gives the probability that a flagged site is still emitting at the next overpass. On a time split (test from 1 March 2026):
+The **persistence model** is a logistic regression built from 3,692 Tanager overpasses of 909 Permian sources: it trains on the 2,000 before 1 March 2026 and is tested on the 1,692 after. It gives the probability that a flagged site is still emitting at the next overpass. On a time split (test from 1 March 2026):
 
 | | Result |
 |---|---|
