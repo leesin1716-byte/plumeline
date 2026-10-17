@@ -1,0 +1,1094 @@
+{
+ "generated": "ml/build_scenario.py",
+ "attribution": "Satellite observations: Data by Carbon Mapper(R) (Tanager), Permian Basin oil & gas sources, anonymized. Operators, sites, gas volumes, reports, plant, cargo and importer are fictional.",
+ "kPrior": 4.0,
+ "maxIntensityPpm": 2000,
+ "responseWindowDays": 10,
+ "superEmitterKgH": 100,
+ "model": {
+  "sha256": "259a1a981b1e60e634163cc1b5f0644dba5ff7c17e22e19c6910af9473607d1f",
+  "uri": "data/model/persistence_logit.json",
+  "auc": 0.755
+ },
+ "start": "2026-06-01T00:00:00Z",
+ "end": "2026-10-08T23:59:59Z",
+ "periods": [
+  202606,
+  202607,
+  202608
+ ],
+ "sites": [
+  {
+   "id": 1,
+   "key": "A1",
+   "name": "Alder Gas Plant",
+   "operator": "Alder Energy",
+   "kind": "gas processing plant",
+   "xy": [
+    0.22,
+    0.3
+   ],
+   "history": [
+    {
+     "t": "2024-10-04T17:48:33Z",
+     "detected": true,
+     "rate": 1080.7
+    },
+    {
+     "t": "2025-01-29T18:00:53Z",
+     "detected": true,
+     "rate": 895.2
+    },
+    {
+     "t": "2025-02-14T18:10:24Z",
+     "detected": true,
+     "rate": -1.0
+    },
+    {
+     "t": "2025-04-25T18:18:44Z",
+     "detected": true,
+     "rate": 146.1
+    },
+    {
+     "t": "2025-07-11T18:29:13.630Z",
+     "detected": true,
+     "rate": 1489.9
+    },
+    {
+     "t": "2025-08-27T18:22:23.990Z",
+     "detected": true,
+     "rate": 2083.8
+    },
+    {
+     "t": "2025-11-26T18:34:26.040Z",
+     "detected": true,
+     "rate": 401.5
+    },
+    {
+     "t": "2026-04-20T18:54:12.580Z",
+     "detected": true,
+     "rate": 1458.1
+    },
+    {
+     "t": "2026-04-22T19:07:36.480Z",
+     "detected": true,
+     "rate": 2525.0
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "key": "A2",
+   "name": "Alder Compressor 7",
+   "operator": "Alder Energy",
+   "kind": "compressor station",
+   "xy": [
+    0.5,
+    0.15
+   ],
+   "history": []
+  },
+  {
+   "id": 3,
+   "key": "B1",
+   "name": "Birch Wellpad Hub",
+   "operator": "Birch Petroleum",
+   "kind": "well pad hub",
+   "xy": [
+    0.73,
+    0.34
+   ],
+   "history": [
+    {
+     "t": "2024-10-08T18:05:56Z",
+     "detected": false,
+     "rate": 0.0
+    },
+    {
+     "t": "2025-01-31T18:13:17Z",
+     "detected": false,
+     "rate": 0.0
+    },
+    {
+     "t": "2025-02-05T17:58:45Z",
+     "detected": false,
+     "rate": 0.0
+    },
+    {
+     "t": "2025-02-07T18:12:04Z",
+     "detected": false,
+     "rate": 0.0
+    },
+    {
+     "t": "2025-07-04T18:27:47.890Z",
+     "detected": false,
+     "rate": 0.0
+    },
+    {
+     "t": "2025-12-05T18:49:48.790Z",
+     "detected": false,
+     "rate": 0.0
+    },
+    {
+     "t": "2026-03-11T19:03:17.100Z",
+     "detected": false,
+     "rate": 0.0
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "key": "B2",
+   "name": "Birch Station 12",
+   "operator": "Birch Petroleum",
+   "kind": "compressor station",
+   "xy": [
+    0.6,
+    0.6
+   ],
+   "history": [
+    {
+     "t": "2024-10-08T18:05:56Z",
+     "detected": false,
+     "rate": 0.0
+    },
+    {
+     "t": "2025-01-31T18:13:17Z",
+     "detected": true,
+     "rate": 1287.4
+    },
+    {
+     "t": "2025-02-05T17:58:45Z",
+     "detected": true,
+     "rate": -1.0
+    },
+    {
+     "t": "2025-07-04T18:27:47.890Z",
+     "detected": false,
+     "rate": 0.0
+    },
+    {
+     "t": "2025-12-05T18:49:48.790Z",
+     "detected": false,
+     "rate": 0.0
+    },
+    {
+     "t": "2026-03-11T19:03:17.100Z",
+     "detected": false,
+     "rate": 0.0
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "key": "C1",
+   "name": "Cedar Treating Plant",
+   "operator": "Cedar Midstream",
+   "kind": "gas treating plant",
+   "xy": [
+    0.33,
+    0.72
+   ],
+   "history": [
+    {
+     "t": "2024-10-08T18:05:56Z",
+     "detected": false,
+     "rate": 0.0
+    },
+    {
+     "t": "2025-01-31T18:13:17Z",
+     "detected": false,
+     "rate": 0.0
+    },
+    {
+     "t": "2025-02-05T17:58:45Z",
+     "detected": true,
+     "rate": 4338.0
+    },
+    {
+     "t": "2025-07-04T18:27:47.890Z",
+     "detected": false,
+     "rate": 0.0
+    },
+    {
+     "t": "2025-12-05T18:49:48.790Z",
+     "detected": false,
+     "rate": 0.0
+    },
+    {
+     "t": "2026-03-11T19:03:17.100Z",
+     "detected": false,
+     "rate": 0.0
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "key": "C2",
+   "name": "Cedar Wellpad Cluster",
+   "operator": "Cedar Midstream",
+   "kind": "well pad cluster",
+   "xy": [
+    0.1,
+    0.55
+   ],
+   "history": [
+    {
+     "t": "2024-10-08T18:05:56Z",
+     "detected": false,
+     "rate": 0.0
+    },
+    {
+     "t": "2025-01-31T18:13:17Z",
+     "detected": false,
+     "rate": 0.0
+    },
+    {
+     "t": "2025-07-04T18:27:47.890Z",
+     "detected": true,
+     "rate": 185.1
+    },
+    {
+     "t": "2025-12-05T18:49:48.790Z",
+     "detected": false,
+     "rate": 0.0
+    },
+    {
+     "t": "2026-03-11T19:03:17.100Z",
+     "detected": false,
+     "rate": 0.0
+    }
+   ]
+  }
+ ],
+ "events": [
+  {
+   "at": "2026-06-21T19:04:00Z",
+   "type": "observation",
+   "site": 1,
+   "scene": "tan20260522t190400c85s4001",
+   "t": "2026-05-22T19:04:00.850Z",
+   "detected": true,
+   "rateKgH": 1520,
+   "sigmaKgH": 154,
+   "quantified": true,
+   "riskNext": 0.9799
+  },
+  {
+   "at": "2026-06-26T18:46:24Z",
+   "type": "observation",
+   "site": 2,
+   "scene": "tan20260527t184624c78s4001",
+   "t": "2026-05-27T18:46:24.780Z",
+   "detected": true,
+   "rateKgH": 1455,
+   "sigmaKgH": 608,
+   "quantified": true,
+   "riskNext": 0.3132
+  },
+  {
+   "at": "2026-06-30T19:09:53Z",
+   "type": "observation",
+   "site": 1,
+   "scene": "tan20260531t190953c61s4001",
+   "t": "2026-05-31T19:09:53.610Z",
+   "detected": true,
+   "rateKgH": 1493,
+   "sigmaKgH": 363,
+   "quantified": true,
+   "riskNext": 0.9876
+  },
+  {
+   "at": "2026-07-02T10:00:00Z",
+   "type": "remediation",
+   "site": 2,
+   "repairedAt": "2026-07-01T16:00:00Z",
+   "note": "Replaced failed compressor rod packing on unit 3"
+  },
+  {
+   "at": "2026-07-03T18:40:38Z",
+   "type": "observation",
+   "site": 2,
+   "scene": "tan20260603t184038c18s4001",
+   "t": "2026-06-03T18:40:38.180Z",
+   "detected": true,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": false,
+   "riskNext": 0.4337
+  },
+  {
+   "at": "2026-07-03T19:10:38Z",
+   "type": "estimate",
+   "site": 2,
+   "period": 202606,
+   "estimateKg": 467265,
+   "lowKg": 41493,
+   "p0": 0.3075,
+   "pMean": 0.446,
+   "pLow": 0.1268,
+   "rateKgH": 1455.1,
+   "sigmaKgH": 608.3,
+   "n": 1,
+   "d": 1
+  },
+  {
+   "at": "2026-07-05T09:00:00Z",
+   "type": "report",
+   "site": 1,
+   "period": 202606,
+   "gasTonnes": 148000,
+   "reportedKg": 44000
+  },
+  {
+   "at": "2026-07-05T09:00:00Z",
+   "type": "report",
+   "site": 2,
+   "period": 202606,
+   "gasTonnes": 61000,
+   "reportedKg": 30500
+  },
+  {
+   "at": "2026-07-05T09:00:00Z",
+   "type": "report",
+   "site": 3,
+   "period": 202606,
+   "gasTonnes": 23000,
+   "reportedKg": 9200
+  },
+  {
+   "at": "2026-07-05T09:00:00Z",
+   "type": "report",
+   "site": 4,
+   "period": 202606,
+   "gasTonnes": 54000,
+   "reportedKg": 13500
+  },
+  {
+   "at": "2026-07-05T09:00:00Z",
+   "type": "report",
+   "site": 5,
+   "period": 202606,
+   "gasTonnes": 96000,
+   "reportedKg": 19200
+  },
+  {
+   "at": "2026-07-05T09:00:00Z",
+   "type": "report",
+   "site": 6,
+   "period": 202606,
+   "gasTonnes": 31000,
+   "reportedKg": 7800
+  },
+  {
+   "at": "2026-07-10T09:00:00Z",
+   "type": "verify",
+   "site": 1,
+   "period": 202606
+  },
+  {
+   "at": "2026-07-10T09:00:00Z",
+   "type": "verify",
+   "site": 2,
+   "period": 202606
+  },
+  {
+   "at": "2026-07-10T09:00:00Z",
+   "type": "verify",
+   "site": 3,
+   "period": 202606
+  },
+  {
+   "at": "2026-07-10T09:00:00Z",
+   "type": "verify",
+   "site": 4,
+   "period": 202606
+  },
+  {
+   "at": "2026-07-10T09:00:00Z",
+   "type": "verify",
+   "site": 5,
+   "period": 202606
+  },
+  {
+   "at": "2026-07-10T09:00:00Z",
+   "type": "verify",
+   "site": 6,
+   "period": 202606
+  },
+  {
+   "at": "2026-07-23T19:01:39Z",
+   "type": "observation",
+   "site": 3,
+   "scene": "tan20260623t190139c75s4001",
+   "t": "2026-06-23T19:01:39.750Z",
+   "detected": true,
+   "rateKgH": 204,
+   "sigmaKgH": 76,
+   "quantified": true,
+   "riskNext": 0.1727
+  },
+  {
+   "at": "2026-07-23T19:01:39Z",
+   "type": "observation",
+   "site": 4,
+   "scene": "tan20260623t190139c75s4001",
+   "t": "2026-06-23T19:01:39.750Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-07-23T19:01:39Z",
+   "type": "observation",
+   "site": 5,
+   "scene": "tan20260623t190139c75s4001",
+   "t": "2026-06-23T19:01:39.750Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-07-23T19:01:39Z",
+   "type": "observation",
+   "site": 6,
+   "scene": "tan20260623t190139c75s4001",
+   "t": "2026-06-23T19:01:39.750Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-07-23T19:31:39Z",
+   "type": "estimate",
+   "site": 3,
+   "period": 202606,
+   "estimateKg": 35320,
+   "lowKg": 1350,
+   "p0": 0.05,
+   "pMean": 0.24,
+   "pLow": 0.0236,
+   "rateKgH": 204.4,
+   "sigmaKgH": 76.0,
+   "n": 1,
+   "d": 1
+  },
+  {
+   "at": "2026-07-23T19:31:39Z",
+   "type": "estimate",
+   "site": 4,
+   "period": 202606,
+   "estimateKg": 0,
+   "lowKg": 0,
+   "p0": null,
+   "pMean": 0,
+   "pLow": 0,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "n": 1,
+   "d": 0
+  },
+  {
+   "at": "2026-07-23T19:31:39Z",
+   "type": "estimate",
+   "site": 5,
+   "period": 202606,
+   "estimateKg": 0,
+   "lowKg": 0,
+   "p0": null,
+   "pMean": 0,
+   "pLow": 0,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "n": 1,
+   "d": 0
+  },
+  {
+   "at": "2026-07-23T19:31:39Z",
+   "type": "estimate",
+   "site": 6,
+   "period": 202606,
+   "estimateKg": 0,
+   "lowKg": 0,
+   "p0": null,
+   "pMean": 0,
+   "pLow": 0,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "n": 1,
+   "d": 0
+  },
+  {
+   "at": "2026-08-01T09:00:00Z",
+   "type": "remediation",
+   "site": 3,
+   "repairedAt": "2026-07-31T15:00:00Z",
+   "note": "Closed stuck-open tank thief hatch, fitted new seal"
+  },
+  {
+   "at": "2026-08-05T09:00:00Z",
+   "type": "report",
+   "site": 1,
+   "period": 202607,
+   "gasTonnes": 151000,
+   "reportedKg": 45500
+  },
+  {
+   "at": "2026-08-05T09:00:00Z",
+   "type": "report",
+   "site": 2,
+   "period": 202607,
+   "gasTonnes": 60500,
+   "reportedKg": 21000
+  },
+  {
+   "at": "2026-08-05T09:00:00Z",
+   "type": "report",
+   "site": 3,
+   "period": 202607,
+   "gasTonnes": 22800,
+   "reportedKg": 9600
+  },
+  {
+   "at": "2026-08-05T09:00:00Z",
+   "type": "report",
+   "site": 4,
+   "period": 202607,
+   "gasTonnes": 55000,
+   "reportedKg": 13800
+  },
+  {
+   "at": "2026-08-05T09:00:00Z",
+   "type": "report",
+   "site": 5,
+   "period": 202607,
+   "gasTonnes": 97000,
+   "reportedKg": 19400
+  },
+  {
+   "at": "2026-08-05T09:00:00Z",
+   "type": "report",
+   "site": 6,
+   "period": 202607,
+   "gasTonnes": 30500,
+   "reportedKg": 7600
+  },
+  {
+   "at": "2026-08-10T09:00:00Z",
+   "type": "verify",
+   "site": 1,
+   "period": 202607
+  },
+  {
+   "at": "2026-08-10T09:00:00Z",
+   "type": "verify",
+   "site": 2,
+   "period": 202607
+  },
+  {
+   "at": "2026-08-10T09:00:00Z",
+   "type": "verify",
+   "site": 3,
+   "period": 202607
+  },
+  {
+   "at": "2026-08-10T09:00:00Z",
+   "type": "verify",
+   "site": 4,
+   "period": 202607
+  },
+  {
+   "at": "2026-08-10T09:00:00Z",
+   "type": "verify",
+   "site": 5,
+   "period": 202607
+  },
+  {
+   "at": "2026-08-10T09:00:00Z",
+   "type": "verify",
+   "site": 6,
+   "period": 202607
+  },
+  {
+   "at": "2026-08-22T19:05:37Z",
+   "type": "observation",
+   "site": 3,
+   "scene": "tan20260723t190537c71s4001",
+   "t": "2026-07-23T19:05:37.710Z",
+   "detected": true,
+   "rateKgH": 360,
+   "sigmaKgH": 103,
+   "quantified": true,
+   "riskNext": 0.2446
+  },
+  {
+   "at": "2026-08-22T19:05:37Z",
+   "type": "observation",
+   "site": 4,
+   "scene": "tan20260723t190537c71s4001",
+   "t": "2026-07-23T19:05:37.710Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-08-22T19:05:37Z",
+   "type": "observation",
+   "site": 5,
+   "scene": "tan20260723t190537c71s4001",
+   "t": "2026-07-23T19:05:37.710Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-08-22T19:05:37Z",
+   "type": "observation",
+   "site": 6,
+   "scene": "tan20260723t190537c71s4001",
+   "t": "2026-07-23T19:05:37.710Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-08-22T19:35:37Z",
+   "type": "estimate",
+   "site": 3,
+   "period": 202607,
+   "estimateKg": 88986,
+   "lowKg": 8599,
+   "p0": 0.1655,
+   "pMean": 0.3324,
+   "pLow": 0.0609,
+   "rateKgH": 359.8,
+   "sigmaKgH": 103.3,
+   "n": 1,
+   "d": 1
+  },
+  {
+   "at": "2026-08-22T19:35:37Z",
+   "type": "estimate",
+   "site": 4,
+   "period": 202607,
+   "estimateKg": 0,
+   "lowKg": 0,
+   "p0": null,
+   "pMean": 0,
+   "pLow": 0,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "n": 1,
+   "d": 0
+  },
+  {
+   "at": "2026-08-22T19:35:37Z",
+   "type": "estimate",
+   "site": 5,
+   "period": 202607,
+   "estimateKg": 0,
+   "lowKg": 0,
+   "p0": null,
+   "pMean": 0,
+   "pLow": 0,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "n": 1,
+   "d": 0
+  },
+  {
+   "at": "2026-08-22T19:35:37Z",
+   "type": "estimate",
+   "site": 6,
+   "period": 202607,
+   "estimateKg": 0,
+   "lowKg": 0,
+   "p0": null,
+   "pMean": 0,
+   "pLow": 0,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "n": 1,
+   "d": 0
+  },
+  {
+   "at": "2026-08-29T19:04:44Z",
+   "type": "observation",
+   "site": 3,
+   "scene": "tan20260730t190444c80s4001",
+   "t": "2026-07-30T19:04:44.800Z",
+   "detected": true,
+   "rateKgH": 104,
+   "sigmaKgH": 34,
+   "quantified": true,
+   "riskNext": 0.3698
+  },
+  {
+   "at": "2026-08-29T19:04:44Z",
+   "type": "observation",
+   "site": 4,
+   "scene": "tan20260730t190444c80s4001",
+   "t": "2026-07-30T19:04:44.800Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-08-29T19:04:44Z",
+   "type": "observation",
+   "site": 5,
+   "scene": "tan20260730t190444c80s4001",
+   "t": "2026-07-30T19:04:44.800Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-08-29T19:04:44Z",
+   "type": "observation",
+   "site": 6,
+   "scene": "tan20260730t190444c80s4001",
+   "t": "2026-07-30T19:04:44.800Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-08-29T19:34:44Z",
+   "type": "estimate",
+   "site": 3,
+   "period": 202607,
+   "estimateKg": 76468,
+   "lowKg": 15507,
+   "p0": 0.1655,
+   "pMean": 0.4437,
+   "pLow": 0.1466,
+   "rateKgH": 231.7,
+   "sigmaKgH": 54.4,
+   "n": 2,
+   "d": 2
+  },
+  {
+   "at": "2026-08-29T19:34:44Z",
+   "type": "estimate",
+   "site": 4,
+   "period": 202607,
+   "estimateKg": 0,
+   "lowKg": 0,
+   "p0": null,
+   "pMean": 0,
+   "pLow": 0,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "n": 2,
+   "d": 0
+  },
+  {
+   "at": "2026-08-29T19:34:44Z",
+   "type": "estimate",
+   "site": 5,
+   "period": 202607,
+   "estimateKg": 0,
+   "lowKg": 0,
+   "p0": null,
+   "pMean": 0,
+   "pLow": 0,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "n": 2,
+   "d": 0
+  },
+  {
+   "at": "2026-08-29T19:34:44Z",
+   "type": "estimate",
+   "site": 6,
+   "period": 202607,
+   "estimateKg": 0,
+   "lowKg": 0,
+   "p0": null,
+   "pMean": 0,
+   "pLow": 0,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "n": 2,
+   "d": 0
+  },
+  {
+   "at": "2026-09-03T18:51:26Z",
+   "type": "observation",
+   "site": 2,
+   "scene": "tan20260804t185126c72s4001",
+   "t": "2026-08-04T18:51:26.720Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-09-03T19:21:26Z",
+   "type": "estimate",
+   "site": 2,
+   "period": 202608,
+   "estimateKg": 0,
+   "lowKg": 0,
+   "p0": null,
+   "pMean": 0,
+   "pLow": 0,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "n": 1,
+   "d": 0
+  },
+  {
+   "at": "2026-09-05T09:00:00Z",
+   "type": "report",
+   "site": 1,
+   "period": 202608,
+   "gasTonnes": 150000,
+   "reportedKg": 45000
+  },
+  {
+   "at": "2026-09-05T09:00:00Z",
+   "type": "report",
+   "site": 2,
+   "period": 202608,
+   "gasTonnes": 62000,
+   "reportedKg": 18600
+  },
+  {
+   "at": "2026-09-05T09:00:00Z",
+   "type": "report",
+   "site": 3,
+   "period": 202608,
+   "gasTonnes": 22500,
+   "reportedKg": 9000
+  },
+  {
+   "at": "2026-09-05T09:00:00Z",
+   "type": "report",
+   "site": 4,
+   "period": 202608,
+   "gasTonnes": 54500,
+   "reportedKg": 13600
+  },
+  {
+   "at": "2026-09-05T09:00:00Z",
+   "type": "report",
+   "site": 5,
+   "period": 202608,
+   "gasTonnes": 95500,
+   "reportedKg": 19100
+  },
+  {
+   "at": "2026-09-05T09:00:00Z",
+   "type": "report",
+   "site": 6,
+   "period": 202608,
+   "gasTonnes": 31200,
+   "reportedKg": 7800
+  },
+  {
+   "at": "2026-09-10T09:00:00Z",
+   "type": "verify",
+   "site": 1,
+   "period": 202608
+  },
+  {
+   "at": "2026-09-10T09:00:00Z",
+   "type": "verify",
+   "site": 2,
+   "period": 202608
+  },
+  {
+   "at": "2026-09-10T09:00:00Z",
+   "type": "verify",
+   "site": 3,
+   "period": 202608
+  },
+  {
+   "at": "2026-09-10T09:00:00Z",
+   "type": "verify",
+   "site": 4,
+   "period": 202608
+  },
+  {
+   "at": "2026-09-10T09:00:00Z",
+   "type": "verify",
+   "site": 5,
+   "period": 202608
+  },
+  {
+   "at": "2026-09-10T09:00:00Z",
+   "type": "verify",
+   "site": 6,
+   "period": 202608
+  },
+  {
+   "at": "2026-09-12T08:00:00Z",
+   "type": "cargo",
+   "ref": "CL-2026-0912",
+   "plant": "Coastline LNG",
+   "allocations": [
+    {
+     "site": 1,
+     "period": 202608,
+     "tonnes": 40000
+    },
+    {
+     "site": 4,
+     "period": 202608,
+     "tonnes": 20000
+    },
+    {
+     "site": 5,
+     "period": 202608,
+     "tonnes": 12000
+    }
+   ]
+  },
+  {
+   "at": "2026-09-12T12:00:00Z",
+   "type": "transfer",
+   "ref": "CL-2026-0912",
+   "to": "importer"
+  },
+  {
+   "at": "2026-09-12T19:04:01Z",
+   "type": "observation",
+   "site": 1,
+   "scene": "tan20260813t190401c96s4001",
+   "t": "2026-08-13T19:04:01.960Z",
+   "detected": true,
+   "rateKgH": 1993,
+   "sigmaKgH": 521,
+   "quantified": true,
+   "riskNext": 0.9896
+  },
+  {
+   "at": "2026-09-12T19:34:01Z",
+   "type": "estimate",
+   "site": 1,
+   "period": 202608,
+   "estimateKg": 1459430,
+   "lowKg": 763147,
+   "p0": 0.9804,
+   "pMean": 0.9843,
+   "pLow": 0.9031,
+   "rateKgH": 1992.9,
+   "sigmaKgH": 521.0,
+   "n": 1,
+   "d": 1
+  },
+  {
+   "at": "2026-09-14T08:00:00Z",
+   "type": "cargo",
+   "ref": "CL-2026-0914",
+   "plant": "Coastline LNG",
+   "expectRevert": "OverAllocated",
+   "allocations": [
+    {
+     "site": 1,
+     "period": 202608,
+     "tonnes": 111000
+    }
+   ]
+  },
+  {
+   "at": "2026-10-03T19:02:42Z",
+   "type": "observation",
+   "site": 4,
+   "scene": "tan20260903t190242c40s4001",
+   "t": "2026-09-03T19:02:42.400Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-10-03T19:02:42Z",
+   "type": "observation",
+   "site": 5,
+   "scene": "tan20260903t190242c40s4001",
+   "t": "2026-09-03T19:02:42.400Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-10-03T19:02:42Z",
+   "type": "observation",
+   "site": 6,
+   "scene": "tan20260903t190242c40s4001",
+   "t": "2026-09-03T19:02:42.400Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-10-05T19:15:45Z",
+   "type": "observation",
+   "site": 3,
+   "scene": "tan20260905t191545c93s4001",
+   "t": "2026-09-05T19:15:45.930Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-10-05T19:15:45Z",
+   "type": "observation",
+   "site": 4,
+   "scene": "tan20260905t191545c93s4001",
+   "t": "2026-09-05T19:15:45.930Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-10-05T19:15:45Z",
+   "type": "observation",
+   "site": 5,
+   "scene": "tan20260905t191545c93s4001",
+   "t": "2026-09-05T19:15:45.930Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-10-05T19:15:45Z",
+   "type": "observation",
+   "site": 6,
+   "scene": "tan20260905t191545c93s4001",
+   "t": "2026-09-05T19:15:45.930Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  },
+  {
+   "at": "2026-10-08T18:49:00Z",
+   "type": "observation",
+   "site": 2,
+   "scene": "tan20260908t184900c04s4001",
+   "t": "2026-09-08T18:49:00.040Z",
+   "detected": false,
+   "rateKgH": 0,
+   "sigmaKgH": 0,
+   "quantified": true
+  }
+ ]
+}
