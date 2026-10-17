@@ -150,3 +150,5 @@ ol.ledger li.fresh { animation: flash 1.2s ease-out; }
   .attacks .result { grid-column: 1; }
   .foot { padding: 4px 16px 18px; }
 }
+.site-label, .site-sub { paint-order: stroke; stroke: #0e1729; stroke-width: 5px; stroke-linejoin: round; }
+.focus { box-shadow: 0 0 0 3px var(--chain), 0 0 40px rgba(90, 169, 255, 0.35); transition: box-shadow 0.4s; }

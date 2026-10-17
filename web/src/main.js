@@ -61,17 +61,36 @@ async function next() {
   }
 }
 
+/** How much an event deserves the event card when several run at once. */
+function notability(step) {
+  const e = step.event;
+  const logs = step.records.flatMap((r) => r.logs.map((l) => l.eventName));
+  if (step.records.some((r) => !r.ok)) return 6;
+  if (logs.includes("CaseOpened") || logs.includes("CaseClosed")) return 5;
+  if (e.type === "cargo") return 5;
+  if (logs.some((n) => n === "SatelliteEstimatePosted") && step.records[0].logs[0]?.args.discrepancy) return 4;
+  if (e.type === "report" && step.flagged) return 4;
+  if (e.type === "observation" && e.detected) return 3;
+  if (e.type === "remediation" || e.type === "transfer") return 3;
+  return 1;
+}
+
 async function runUntil(iso) {
-  let last = null;
+  let best = null;
   while (!sc.done && unix(sc.events[sc.cursor].at) <= unix(iso)) {
     busy = true;
-    last = await sc.step();
+    const step = await sc.step();
     busy = false;
+    if (step.event.type === "report") {
+      const rep = await sc.chain.call("reports", [step.event.site, step.event.period]);
+      step.flagged = rep[9];
+    }
+    if (!best || notability(step) >= notability(best)) best = step;
   }
   sc.chain.setTime(unix(iso));
   state = await sc.read();
-  drawAll(last);
-  return last;
+  drawAll(best);
+  return best;
 }
 
 async function play() {
@@ -126,7 +145,7 @@ function drawHead() {
 }
 
 // ---------------------------------------------------------------- map
-const W = 1000, Hh = 620, PLANT = [905, 560];
+const W = 1000, Hh = 760, PLANT = [905, 700];
 function siteStatus(s) {
   if (!s.openCaseId) return s.casesOpened ? "closed" : "clear";
   const c = state.cases.find((k) => k.id === s.openCaseId);
@@ -141,7 +160,7 @@ function drawMap(step) {
   for (let i = 0; i < 14; i++) {
     g += `<path d="M0 ${40 + i * 44} C 250 ${20 + i * 44}, 520 ${80 + i * 44}, 1000 ${30 + i * 44}" stroke="#15213a" stroke-width="1" fill="none"/>`;
   }
-  const hub = [820, 470];
+  const hub = [820, 600];
   for (const s of state.sites) {
     const [x, y] = [s.xy[0] * W, s.xy[1] * Hh];
     g += `<path class="pipe flow" d="M${x} ${y} Q ${(x + hub[0]) / 2} ${y + 60} ${hub[0]} ${hub[1]}"/>`;
@@ -211,17 +230,26 @@ function describe(step) {
     }
     case "estimate": {
       const m = s.months[e.period];
+      const what = e.estimateKg
+        ? `${periodName(e.period)} satellite estimate for ${s.name}: ${tCH4(e.estimateKg)} t CH₄ (floor ${tCH4(e.lowKg)} t)`
+        : `${periodName(e.period)} satellite estimate for ${s.name}: nothing above the detection limit`;
+      let why;
+      if (!m.gasTonnes) why = `No ${periodName(e.period)} report from ${s.operator} yet. When it arrives, the contract compares it with this floor.`;
+      else if (m.discrepancy) why = `Even the conservative floor is above the ${tCH4(m.reportedKg)} t the operator reported. The month is flagged for reconciliation and cargoes now count ${tCH4(m.reconciledKg)} t.`;
+      else why = `${e.d} detection(s) in ${e.n} overpass(es). The floor stays below the ${tCH4(m.reportedKg)} t reported, so the report stands.`;
+      return { cls: m.discrepancy ? "alarm" : "", when: `Model oracle · ${pub}`, what, why };
+    }
+    case "report": {
+      const m = s.months[e.period];
       return {
         cls: m.discrepancy ? "alarm" : "",
-        when: `Model oracle · ${pub}`,
-        what: `${periodName(e.period)} satellite estimate for ${s.name}: ${tCH4(e.estimateKg)} t CH₄ (floor ${tCH4(e.lowKg)} t)`,
+        when: `${s.operator} · ${pub}`,
+        what: `${periodName(e.period)} report for ${s.name}: ${e.gasTonnes.toLocaleString()} t gas, ${tCH4(e.reportedKg)} t CH₄`,
         why: m.discrepancy
-          ? `Even the conservative floor is above the ${tCH4(m.reportedKg)} t the operator reported. The month is flagged for reconciliation and cargoes now count ${tCH4(m.reconciledKg)} t.`
-          : `${e.d} detection(s) in ${e.n} overpass(es). The floor stays below the report, so the report stands.`,
+          ? `The satellite floor for ${periodName(e.period)} is already ${tCH4(m.satLowKg)} t, above this report. The month is flagged on arrival and cargoes count ${tCH4(m.reconciledKg)} t.`
+          : "The report file stays off chain; its hash is on chain.",
       };
     }
-    case "report":
-      return { cls: "", when: `${s.operator} · ${pub}`, what: `${periodName(e.period)} report for ${s.name}: ${e.gasTonnes.toLocaleString()} t gas, ${tCH4(e.reportedKg)} t CH₄`, why: "The report file stays off chain; its hash is on chain." };
     case "verify":
       return { cls: "", when: `Accredited verifier · ${pub}`, what: `${periodName(e.period)} report for ${s.name} verified`, why: "Only verified site-months can be sold into a cargo." };
     case "remediation":
@@ -254,7 +282,7 @@ function drawCases(step) {
   const touched = step?.event.site;
   for (const c of state.cases) {
     const s = state.sites[c.siteId - 1];
-    const st = c.status === "Closed" ? ["closed", `Closed ${fmtShort(c.closedAt)}`] : c.status === "Remediation claimed" ? ["claimed", "Repair claimed"] : c.overdue ? ["overdue", `Overdue since ${fmtShort(c.respondBy)}`] : ["open", `Open · answer by ${fmtShort(c.respondBy)}`];
+    const st = c.status === "Closed" ? ["closed", `Closed · clear pass ${fmtShort(c.closedAt)}`] : c.status === "Remediation claimed" ? ["claimed", "Repair claimed"] : c.overdue ? ["overdue", `Overdue since ${fmtShort(c.respondBy)}`] : ["open", `Open · answer by ${fmtShort(c.respondBy)}`];
     html += `<tr class="${touched === c.siteId ? "flash" : ""}"><td>#${c.id}</td><td>${s.name}</td><td>${fmtShort(c.openedAt)}</td><td class="num">${c.peakKgH.toLocaleString()}</td><td class="num">${c.detections}</td>` +
       `<td><div class="risk"><div class="bar"><i style="width:${c.riskBps / 100}%"></i></div>${(c.riskBps / 100).toFixed(0)} %</div></td><td><span class="pill ${st[0]}">${st[1]}</span></td></tr>`;
   }
